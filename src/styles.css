@@ -9,9 +9,6 @@ html {
 }
 
 body {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   display: block;
 
   color: #000000;
@@ -19,15 +16,7 @@ body {
   background-image: url('./images/bg-pattern.png');
 
   font-family: Roboto, sans-serif;
-  font-size: 20px;
-
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
-
-  /*
-   * CSS image reference example.
-   */
+  font-size: 25px;
 }
 
 .search-area {
@@ -47,4 +36,53 @@ body {
   font-size: 44px;
 
   background: #fff;
+}
+/* .js-response-container {
+  display: flex; 
+}  */
+
+.titleCountry {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 5px;
+}
+.card {
+  display: flex;
+  justify-content: center;
+}
+.card-img {
+  display: block;
+}
+
+.flag-img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+/* .js-response-container {
+  display: flex; 
+  justify-content: center;
+} */
+.textCountry {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.headingContry {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  display: block;
+  text-align: left;
+}
+
+.card-body {
+  margin: 15px;
+}
+
+.list-group {
+  display: inline-block;
+  text-align: left;
 }
