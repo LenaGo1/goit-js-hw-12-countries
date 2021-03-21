@@ -1,55 +1,8 @@
-// export default {
-//     fetchCountries(searchQuery)
-// }
-import debounce from 'lodash.debounce';
-import '../styles.css';
-import API from './api-service';
-import countryCardTpl from '../templates/country-card.hbs';
-import searchCardTpl from '../templates/search-list.hbs';
-import raiseError from '../js/notifications.js';
+const BASE_URL = 'https://restcountries.eu/rest/v2';
 
-const refs = {
-    searchInput : document.querySelector(".search-input"),
-    resultContainer : document.querySelector(".js-response-container"),
-};
-
-refs.searchInput.addEventListener('input', debounce(onSearch, 1500));
-
-function onSearch(e) {
-    // чтоб не перезагружалась страница
-    e.preventDefault();
-    
-    // получаем значение инпута во время ввода запроса
-    const searchQuery = e.target.value;
-    console.log(e.target.value);
-
-    clearContainer();
-
-    // из объекта API беру только функцию fatchCountry
-    API.fetchCountry(searchQuery)
-        .then(renderCountryCard)
-        .catch(error => console.log(error))
-}
-function clearContainer() {
-    refs.resultContainer.innerHTML = '';
+function fetchCountry(name) {
+    const url = `${BASE_URL}/name/${name}`;
+    return fetch(url).then(response => response.json());
 }
 
-function renderCountryCard(countries) {
-    if (countries.length > 10) {
-        raiseError()
-    }
-    else if (countries.length >= 2) {
-        const markupList = searchCardTpl(countries);
-        refs.resultContainer.innerHTML = markupList;
-    }
-    else if (countries.status === 404) {
-        refs.resultContainer.innerHTML = '';
-    }    
-    else {
-        const markupCountry = countryCardTpl(countries[0]);
-        refs.resultContainer.innerHTML = markupCountry;
-    }
-}
-
-
-
+export default { fetchCountry };

@@ -1,3 +1,3 @@
 import './js/notifications';
 import './styles.css';
-import './js/fetchCountries';
+import './js/renderCountries';
