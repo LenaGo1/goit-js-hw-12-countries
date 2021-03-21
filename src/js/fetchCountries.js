@@ -3,10 +3,10 @@
 // }
 import debounce from 'lodash.debounce';
 import '../styles.css';
-import countryCardTpl from '../templates/country-card.hbs';
 import API from './api-service';
-import raiseError from '../js/notifications.js'
+import countryCardTpl from '../templates/country-card.hbs';
 import searchCardTpl from '../templates/search-list.hbs';
+import raiseError from '../js/notifications.js';
 
 const refs = {
     searchInput : document.querySelector(".search-input"),
@@ -42,6 +42,9 @@ function renderCountryCard(countries) {
         const markupList = searchCardTpl(countries);
         refs.resultContainer.innerHTML = markupList;
     }
+    else if (countries.status === 404) {
+        refs.resultContainer.innerHTML = '';
+    }    
     else {
         const markupCountry = countryCardTpl(countries[0]);
         refs.resultContainer.innerHTML = markupCountry;
