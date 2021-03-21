@@ -8,9 +8,9 @@ import '@pnotify/core/dist/Material.css';
 
 defaultModules.set(PNotifyMobile, {});
 
-function raise_error() {
+function raise_error(content) {
     error({
-        text: 'Too many matches found. Please enter a more specific query!'
+        text: content
     });
 }
 
