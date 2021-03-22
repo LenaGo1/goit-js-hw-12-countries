@@ -52,6 +52,7 @@ function renderCountryCard(countries) {
     }
     else if (countries.status === 404) {
         refs.resultContainer.innerHTML = '';
+        raise_error('Invalid request! Please try again!');
     }    
     else {
         const markupCountry = countryCardTpl(countries[0]);
