@@ -18,14 +18,14 @@ function onSearch(e) {
     e.preventDefault();
     
     // получаем значение инпута во время ввода запроса
-    const searchQuery = e.target.value;
+    const searchQuery = e.target.value.trim();
     console.log(e.target.value);
 
     // очищаем контейнер
     clearContainer();
 
     // если введен пробел или очищен инпут - не делаем запрос
-    if (searchQuery === "" || searchQuery === " ") {
+    if (searchQuery === "") {
         raise_error('Invalid request! Please try again!');
         return
     }
